@@ -1,0 +1,6 @@
+{
+  "name": "anthropic-sdk-python",
+  "description": "Anthropic Python SDK reference for Claude API integrations",
+  "version": "1.0.0",
+  "tags": ["anthropic", "claude", "api", "python", "sdk"]
+}

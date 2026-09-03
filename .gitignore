@@ -1,0 +1,8 @@
+eval-results/
+behavior-judgments/
+__pycache__/
+*.pyc
+install-manifest.json
+sam-agentic-harness-backup-*/
+fit-report.json
+install-plan.json

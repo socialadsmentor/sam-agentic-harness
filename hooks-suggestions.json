@@ -1,0 +1,45 @@
+{
+  "_comment": "The installer never applies this. Wiring a hook into settings.json is a manual, deliberate step you take yourself. Copy the entries you want into your own settings.json 'hooks' block, adjusting the script path to where this repo ended up on disk.",
+  "suggestions": [
+    {
+      "event": "PreToolUse",
+      "matcher": "Write|Edit|Bash",
+      "script": "scripts/secret-scanner.js",
+      "purpose": "Scans the tool input for credential-shaped strings (cloud keys, tokens, private-key blocks) before the write or command runs. Exits 2 to block if it finds one.",
+      "exitCodes": "0 = allow, 2 = block"
+    },
+    {
+      "event": "PreToolUse",
+      "matcher": "Edit|Write|MultiEdit",
+      "script": "scripts/secrets-guard.cjs",
+      "purpose": "Denies direct edits to .env* and .credentials.json files outright, regardless of content. Reading key names for a capability sweep still works via grep.",
+      "exitCodes": "always 0; blocking is expressed as a JSON permissionDecision: deny"
+    },
+    {
+      "event": "PreToolUse",
+      "matcher": "Bash",
+      "script": "scripts/bash-guard.js",
+      "purpose": "Blocks a fixed list of dangerous shell patterns before they run: recursive force-delete, a force-push to main or master, a wrangler pages secret delete, DROP TABLE/DATABASE, recursive chmod 777, a find -delete against a root path, and a fork bomb.",
+      "exitCodes": "0 = allow, 2 = block"
+    },
+    {
+      "event": "PostToolUse",
+      "matcher": "Edit|Write",
+      "script": "scripts/post-edit-lint.js",
+      "purpose": "Runs a fast syntax check on the file just written: node --check for .js/.cjs/.mjs, py_compile for .py, a JSON parse for .json. Reports a failure as a system reminder instead of silently leaving a broken file behind.",
+      "exitCodes": "0 = clean, 2 = syntax error"
+    }
+  ],
+  "manualChecks": [
+    {
+      "script": "scripts/parse-check.ps1",
+      "purpose": "AST-validates a PowerShell script with the PowerShell parser. Not wired as a hook; run it by hand or from your own CI on any .ps1 file before you ship it, per naming.conventions.md's ASCII-only rule for .ps1/.bat files.",
+      "usage": "pwsh scripts/parse-check.ps1 -Path <file.ps1>"
+    },
+    {
+      "script": "scripts/self-harness-mine.cjs",
+      "purpose": "Stage 1 of the self-harness loop. Read-only, scans your own trace store for recurring failure clusters. Meant to run on a weekly schedule you set up yourself, not as a tool-event hook.",
+      "usage": "node scripts/self-harness-mine.cjs"
+    }
+  ]
+}

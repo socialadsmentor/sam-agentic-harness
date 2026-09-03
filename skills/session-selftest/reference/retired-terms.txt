@@ -1,0 +1,5 @@
+# Retired-tooling terms to flag in memory files as stale references.
+# One term per line. Replace with your own project's retired tool/system names.
+legacy-swarm-cli
+old-agent-runner
+deprecated-memory-store

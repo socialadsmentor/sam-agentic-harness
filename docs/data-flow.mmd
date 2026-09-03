@@ -1,0 +1,23 @@
+flowchart TD
+  U[A request comes in] --> R[Rules load automatically, every session]
+  R --> S[Skills load if the request matches one]
+  S --> T[The agent takes a turn: reads, plans, calls tools]
+  T --> H[Hooks fire automatically, outside the agent's own reasoning]
+  T --> SA[Big or risky steps go to a subagent, model picked by a score]
+  SA --> T
+  H --> VCK{Verification step: read the actual result back}
+  VCK -- fails --> T
+  VCK -- passes --> MEM[Write to memory]
+  MEM --> M1[Tier 1: local files]
+  MEM --> M2[Tier 2: semantic store]
+  MEM --> M3[Tier 3: shared vault]
+  M1 --> SH[Self-improvement loop]
+  M2 --> SH
+  M3 --> SH
+  SH --> L1[Mine failures from raw traces]
+  L1 --> L2[Propose a few small, bounded fixes]
+  L2 --> L3[Test each fix against a fixed set of tasks]
+  L3 --> GATE{A human reads the fix and the test result}
+  GATE -- approved --> R
+  GATE -- rejected --> L2
+  GATE -.never touches.-> X[Money, permissions, security, safety rules]

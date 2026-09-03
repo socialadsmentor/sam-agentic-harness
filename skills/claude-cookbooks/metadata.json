@@ -1,0 +1,53 @@
+{
+  "name": "claude-cookbooks",
+  "description": "Reference for Anthropic's official Claude Cookbooks - 65 Jupyter notebooks with code recipes for building with Claude",
+  "source": "https://github.com/anthropics/claude-cookbooks",
+  "totalCookbooks": 65,
+  "lastUpdated": "2026-03-08",
+  "categories": [
+    "Agent Patterns",
+    "Claude Agent SDK",
+    "Evals",
+    "Fine-Tuning",
+    "Integrations",
+    "Multimodal",
+    "Observability",
+    "RAG & Retrieval",
+    "Responses",
+    "Skills",
+    "Thinking",
+    "Tools"
+  ],
+  "directories": [
+    "capabilities",
+    "claude_agent_sdk",
+    "coding",
+    "extended_thinking",
+    "finetuning",
+    "misc",
+    "multimodal",
+    "observability",
+    "patterns",
+    "skills",
+    "third_party",
+    "tool_evaluation",
+    "tool_use"
+  ],
+  "thirdPartyIntegrations": [
+    "Deepgram",
+    "ElevenLabs",
+    "LlamaIndex",
+    "MongoDB",
+    "Pinecone",
+    "Wikipedia",
+    "WolframAlpha"
+  ],
+  "keyTopics": {
+    "ragAndRetrieval": "Classification, contextual embeddings, RAG pipelines, text-to-SQL, PDF processing, citations",
+    "agentPatterns": "Research agents, chief of staff agent, site reliability agent, orchestrator-workers, evaluator-optimizer, sub-agents",
+    "toolUse": "Calculator, customer service, JSON extraction, memory management, parallel tools, PTC, Pydantic, vision+tools, tool search",
+    "multimodal": "Vision best practices, image input, document transcription, charts/graphs, crop tool",
+    "skills": "Introduction, financial applications, custom skill development",
+    "optimization": "Batch processing, prompt caching, speculative caching, context compaction, session memory compaction, sampling past max tokens"
+  }
+}

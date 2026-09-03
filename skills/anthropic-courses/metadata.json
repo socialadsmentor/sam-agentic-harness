@@ -1,0 +1,51 @@
+{
+  "name": "anthropic-courses",
+  "description": "Reference for Anthropic's official educational courses - 5 structured courses with 39 notebooks/modules",
+  "source": "https://github.com/anthropics/courses",
+  "totalCourses": 5,
+  "totalNotebooks": 39,
+  "lastUpdated": "2026-03-08",
+  "recommendedOrder": [
+    "anthropic_api_fundamentals",
+    "prompt_engineering_interactive_tutorial",
+    "real_world_prompting",
+    "prompt_evaluations",
+    "tool_use"
+  ],
+  "courses": {
+    "anthropic_api_fundamentals": {
+      "path": "anthropic_api_fundamentals/",
+      "notebooks": 6,
+      "topics": ["API key setup", "Messages format", "Models", "Parameters", "Streaming", "Vision"],
+      "difficulty": "beginner"
+    },
+    "prompt_engineering_interactive_tutorial": {
+      "path": "prompt_engineering_interactive_tutorial/Anthropic 1P/",
+      "notebooks": 13,
+      "topics": ["Basic prompts", "Clarity", "Role prompting", "Data separation", "Output formatting", "Chain-of-thought", "Few-shot", "Hallucination avoidance", "Complex prompts", "Prompt chaining", "Tool use intro", "Search & retrieval"],
+      "difficulty": "beginner-intermediate",
+      "alternateVersions": ["AWS Workshop (Bedrock)"]
+    },
+    "real_world_prompting": {
+      "path": "real_world_prompting/",
+      "notebooks": 5,
+      "topics": ["Medical prompts", "Advanced prompt engineering", "Call summarization", "Customer support AI"],
+      "difficulty": "intermediate",
+      "alternateVersions": ["Google Vertex"]
+    },
+    "prompt_evaluations": {
+      "path": "prompt_evaluations/",
+      "modules": 9,
+      "topics": ["Eval fundamentals", "Workbench evals", "Code-graded evals", "Classification evals", "PromptFoo integration", "Custom graders", "Model-graded evals"],
+      "difficulty": "intermediate-advanced"
+    },
+    "tool_use": {
+      "path": "tool_use/",
+      "notebooks": 6,
+      "topics": ["Tool use overview", "Simple tools", "Structured outputs", "Complete workflows", "Tool choice", "Multi-tool chatbots"],
+      "difficulty": "intermediate"
+    }
+  },
+  "defaultModel": "Claude 3 Haiku (for cost savings)",
+  "prerequisites": ["Anthropic API key"]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "anthropic-sdk-php",
+  "description": "Quick reference for the official Anthropic Claude SDK for PHP",
+  "version": "latest",
+  "language": "php",
+  "package": "anthropic-ai/sdk",
+  "packageManager": "Composer",
+  "repository": "https://github.com/anthropics/anthropic-sdk-php",
+  "documentation": "https://platform.claude.com/docs/en/api/sdks/php",
+  "requirements": "PHP 8.1.0+",
+  "license": "MIT",
+  "topics": [
+    "anthropic",
+    "claude",
+    "php",
+    "sdk",
+    "messages-api",
+    "streaming",
+    "tool-use",
+    "bedrock",
+    "vertex"
+  ],
+  "lastUpdated": "2026-03-08"
+}
